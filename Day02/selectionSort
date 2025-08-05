@@ -1,0 +1,21 @@
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+        int a[]={5,8,9,4,12,3,55,65,15,21,10};
+        for(int i=0;i<a.length-1;i++){
+            int min=i;
+            for(int j=i+1;j<a.length;j++){
+                if(a[j]<a[min]){
+                    min=j;
+                }
+            }
+            if(a[min]<a[i]){
+                int temp=a[i];
+                a[i]=a[min];
+                a[min]=temp;
+                
+            }
+        }
+        System.out.println(Arrays.toString(a));
+    }
+}
