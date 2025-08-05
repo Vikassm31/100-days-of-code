@@ -1,0 +1,51 @@
+class Main{
+    public static void mergeSort(int a[],int left,int right){
+        if(left<right){
+            int mid=(left+right)/2;
+            mergeSort(a,left,mid);
+            mergeSort(a,mid+1,right);
+            sort(a,left,mid, right);
+        }
+    }
+    public static void sort(int a[],int left,int mid,int right){
+        int arr[]=new int[right-left+1];
+        int ind1=left;
+        int ind2=mid+1;
+        int i=0;
+        while(ind1<=mid && ind2<=right){
+            if(a[ind1]<a[ind2]){
+                arr[i]=a[ind1];
+                i++;
+                ind1++;
+            }else{
+                arr[i]=a[ind2];
+                i++;
+                ind2++;
+            }
+        }
+        while(ind1<=mid){
+            arr[i]=a[ind1];
+            i++;
+            ind1++;
+        }
+        while(ind2<=right){
+            arr[i]=a[ind2];
+            i++;
+            ind2++;
+        }
+        for(int j=0;j<arr.length;j++){
+            a[left+j]=arr[j];
+        }
+        
+    }
+    public static void main(String[] args){
+         int a[] = {26, 21, 5, 14, 31, 2, 16, 9, 11, 35, 18, 19};
+        
+        mergeSort(a, 0, a.length - 1);
+        
+        System.out.print("Sorted array: ");
+        for (int num : a) {
+            System.out.print(num + " ");
+        }
+    }
+}
