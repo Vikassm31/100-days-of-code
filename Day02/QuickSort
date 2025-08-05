@@ -1,0 +1,33 @@
+class Main{
+    public static int partision(int[] arr, int st,int end){
+        int piv=arr[end];
+        int ind=st-1;
+        for(int i=st;i<end;i++){
+            if(arr[i]<=piv){
+                ind++;
+                int temp=arr[ind];
+                arr[ind]=arr[i];
+                arr[i]=temp;
+            }
+        }
+        ind++;
+        int temp=arr[ind];
+        arr[ind]=arr[end];
+        arr[end]=temp;
+        return ind;
+    }
+    public static void quickSort(int[] arr, int st, int end){
+        if(st<end){
+            int pivInd=partision(arr,st,end);
+            quickSort(arr,st,pivInd-1);
+            quickSort(arr,pivInd+1,end);
+        }
+    }
+    public static void main(String[] args){
+        int a[]={26,21,5,14,31,2,16,9,11,35,18,19};
+        quickSort(a,0,a.length-1);
+        for(int i:a){
+            System.out.print(i+" ");
+        }
+    }
+}
