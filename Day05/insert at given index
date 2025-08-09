@@ -1,0 +1,29 @@
+import java.util.Arrays;
+
+class InsertArray {
+    public static void insertElement(int arr[], int n, int index) {
+        if (index > arr.length || index < 0) {
+            System.out.println("Invalid index");
+            return;
+        }
+
+        int[] newArr = new int[arr.length + 1];
+
+        for (int i = 0; i < index; i++) {
+            newArr[i] = arr[i];
+        }
+
+        newArr[index] = n;
+
+        for (int i = index; i < arr.length; i++) {
+            newArr[i + 1] = arr[i];
+        }
+
+        System.out.println(Arrays.toString(newArr));
+    }
+
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        insertElement(arr, 100, 5); 
+    }
+}
