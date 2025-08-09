@@ -1,0 +1,17 @@
+public void delete(int pos){
+       if (pos <= 0) {
+        System.out.println("Invalid position");
+        return;
+    }
+    if(pos==1){
+        root=root.next;
+        return;
+    }
+    Node temp=root;
+    int count=1;
+    while(temp!=null && count<pos-1){
+        temp=temp.next;
+        count++;
+    }
+    temp.next=temp.next.next;
+    }
