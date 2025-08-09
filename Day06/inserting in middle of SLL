@@ -1,0 +1,77 @@
+class Node{
+    int val;
+    Node next;
+    public Node(int val){
+        this.val=val;
+        this.next=null;
+    }
+}
+
+public class SLL {
+    Node root;
+    public SLL(){
+        this.root=null;
+    }
+    public void addNode(int x){
+        Node n=new Node(x);
+        if(root==null){
+            root=n;
+            return;
+        }
+        Node temp=this.root;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=n;
+    }
+    public void display(){
+        if(root==null) {
+			System.out.println("empty");
+			return;
+		}
+		Node temp=root;
+		while(temp!=null) {
+			System.out.print(temp.val+"->");
+			temp=temp.next;
+		}
+    }
+    public void insertAtNth(int val, int pos) {
+    if (pos <= 0) {
+        System.out.println("Invalid position");
+        return;
+    }
+
+    Node n = new Node(val);
+
+    if (pos == 1) {
+        n.next = root;
+        root = n;
+        return;
+    }
+
+    Node temp = root;
+    int count = 1;
+
+    while (temp != null && count < pos - 1) {
+        temp = temp.next;
+        count++;
+    }
+
+    if (temp == null) {
+        System.out.println("Position out of range");
+        return;
+    }
+
+    n.next = temp.next;
+    temp.next = n;
+}
+
+    public static void main(String[] args) {
+        SLL s=new SLL();
+        s.addNode(10);
+        s.addNode(20);
+        s.addNode(30);
+        s.insertAtNth(100,1);
+        s.display();
+    }
+}
