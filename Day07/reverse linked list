@@ -1,0 +1,12 @@
+public void reverse() {
+		Node prev=null;
+		Node temp=root;
+		Node store=root;
+		while(temp!=null) {
+			store=temp.next;
+			temp.next=prev;
+			prev=temp;
+			temp=store;
+		}
+		root=prev;
+	}
