@@ -1,0 +1,21 @@
+public void deleteFromLast(int p) {
+		
+		Node slow=root;
+		Node fast=root;
+		
+		for(int i=1;i<=p;i++) {
+			if(fast==null) {
+				return;
+			}
+			fast=fast.next;
+		}
+		if (fast == null) {
+	        root = root.next;
+	        return;
+	    }
+		while(fast.next!=null) {
+			fast=fast.next;
+			slow=slow.next;
+		}
+		slow.next=slow.next.next;
+	}
