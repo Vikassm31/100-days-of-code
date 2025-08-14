@@ -1,1 +1,27 @@
+public class WaterContainer {
+	public static void container(int arr[]) {
+		int l=0;
+		int r=arr.length-1;
+		int maxSum=0;
+		int left=0;int right=arr.length-1;
+		while(l<r) {
+			int sum=(Math.min(arr[l], arr[r]))*(r-l);
+			if(sum>maxSum) {
+				maxSum=sum;
+				left=arr[l];
+				right=arr[r];
+			}
+			if(arr[r]>arr[l]) {
+				l++;
+			}else {
+				r--;
+			}
+		}
+		System.out.println(maxSum+" between "+left+" and "+right);
+	}
 
+	public static void main(String[] args) {
+		int a[]= {5,23,1,12,23,45,29,6,52,14,14,19,62,55,40,23,100,22,21,19,65};
+		container(a);
+	}
+}
